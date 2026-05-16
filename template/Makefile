@@ -41,5 +41,33 @@ $(TEST): $(TEST_OBJS)
 	@mkdir -p $(dir $@)
 	$(CXX) $^ $(LDFLAGS) -o $@
 
+# Synthesis build (Phase 3a+): combine db_static.cpp with synth-generated
+# loader/builder/query impls from $(SYNTH_DIR).
+#
+# Usage: make synth SYNTH_DIR=../output/q1
+#
+# Output: $(BUILD)/db_synth, invoked as `db_synth --data-dir <dir> --query <id>`.
+# Empty/missing SYNTH_DIR fails the link (load/build/query unresolved), which
+# is the expected dry-run smoke-test behavior.
+SYNTH_DIR     ?=
+SYNTH_SRCS    := $(wildcard $(SYNTH_DIR)/*.cpp)
+SYNTH_OBJS    := $(patsubst %.cpp,$(BUILD)/synth/%.o,$(notdir $(SYNTH_SRCS)))
+
+SYNTH_MAIN_SRCS := db_static.cpp utils/build_id.cpp
+SYNTH_MAIN_OBJS := $(patsubst %.cpp,$(BUILD)/%.o,$(SYNTH_MAIN_SRCS))
+
+DB_SYNTH      := $(BUILD)/db_synth
+
+.PHONY: synth
+synth: $(DB_SYNTH)
+
+$(DB_SYNTH): $(SYNTH_MAIN_OBJS) $(SYNTH_OBJS)
+	@mkdir -p $(dir $@)
+	$(CXX) $^ $(LDFLAGS) -o $@
+
+$(BUILD)/synth/%.o: $(SYNTH_DIR)/%.cpp
+	@mkdir -p $(BUILD)/synth
+	$(CXX) $(CXXFLAGS) -I$(SYNTH_DIR) -c $< -o $@
+
 clean:
 	rm -rf $(BUILD)

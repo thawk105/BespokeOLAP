@@ -2,7 +2,7 @@
 > The OpenAI-Agents-SDK-based orchestrator has been moved to `_legacy/`,
 > and a Claude Code-based re-implementation is under development.
 >
-> **Current Phase: 2 (foundation)** — TPC-H data + validation harness + minimal static build. See `docs/PHASE2.md` for status, `CLAUDE.md` for the synthesis workflow planned in Phase 3.
+> **Current Phase: 3a (synthesis infra)** — subagents + `/synthesize` slash command + Makefile `synth` target. The actual synthesis run happens in Phase 3b. See `docs/PHASE3.md` for the roadmap, `CLAUDE.md` for the synthesis workflow.
 
 ---
 

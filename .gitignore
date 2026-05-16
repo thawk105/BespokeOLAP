@@ -1,6 +1,5 @@
 .env
 cache/
-output/
 lsyncd.conf.lua
 duckdb
 *.parquet
@@ -232,8 +231,10 @@ __marimo__/
 
 # Bespoke synthesis state (Claude Code re-implementation)
 data/
-output/
 build/
 .claude/cache/
 .claude/logs/
+.claude/settings.local.json
 *.so
+# output/ is tracked (synthesis artifacts live here, one dir per query)
+!output/
