@@ -1,7 +1,8 @@
 > **Fork notice**: This is a fork of [DataManagementLab/BespokeOLAP](https://github.com/DataManagementLab/BespokeOLAP) (Apache-2.0).
 > The OpenAI-Agents-SDK-based orchestrator has been moved to `_legacy/`,
 > and a Claude Code-based re-implementation is under development.
-> See `docs/PHASE1.md` for the current state.
+>
+> **Current Phase: 2 (foundation)** — TPC-H data + validation harness + minimal static build. See `docs/PHASE2.md` for status, `CLAUDE.md` for the synthesis workflow planned in Phase 3.
 
 ---
 
