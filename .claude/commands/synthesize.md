@@ -1,4 +1,5 @@
 ---
+name: synthesize
 description: Synthesize a bespoke C++ OLAP engine for one query (TPC-H only in Phase 3).
 argument-hint: <benchmark> <query_id>
 ---
