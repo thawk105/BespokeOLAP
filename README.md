@@ -1,3 +1,10 @@
+> **Fork notice**: This is a fork of [DataManagementLab/BespokeOLAP](https://github.com/DataManagementLab/BespokeOLAP) (Apache-2.0).
+> The OpenAI-Agents-SDK-based orchestrator has been moved to `_legacy/`,
+> and a Claude Code-based re-implementation is under development.
+> See `docs/PHASE1.md` for the current state.
+
+---
+
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-Apache%202.0-g.svg)](LICENSE)
 [![uv](https://img.shields.io/badge/dependency%20manager-uv-orange.svg)](https://github.com/astral-sh/uv)

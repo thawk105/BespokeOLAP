@@ -229,3 +229,11 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 .DS_Store
+
+# Bespoke synthesis state (Claude Code re-implementation)
+data/
+output/
+build/
+.claude/cache/
+.claude/logs/
+*.so
